@@ -32,13 +32,19 @@ export const SearchFormWrapper = styled.form`
       font-weight: bold;
       border-radius: 6px;
 
-      &:hover {
+      &:not(:disabled):hover {
         background: ${theme['green-500']};
         border: 1px solid ${theme['green-500']};
         color: ${theme['white']};
 
         transition: background-color 0.2s, color 0.2s, border-color: 0.2s;
       }
+
+      &:disabled {
+        filter: opacity(0.7);
+        cursor: not-allowed;
+      }
+
     }
   `}
 `
