@@ -43,7 +43,7 @@ const modifiersPriceHighlight = {
   `,
   outcome: (theme: DefaultTheme) => css`
     color: ${theme['red-300']};
-  `
+  `,
 }
 
 export const PriceHighlight = styled.span<PriceHighlightProps>`

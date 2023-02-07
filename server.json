@@ -1,23 +1,52 @@
 {
   "transactions": [
     {
-
-      "id":1,
+      "id": 1,
       "description": "Desenvolvimento de site",
-      "type":"income",
+      "type": "income",
       "category": "Venda",
       "price": 14000,
       "createdAt": "2023-02-02T23:23:35.304"
     },
     {
-
-      "id":2,
+      "id": 2,
       "description": "Hamburger",
-      "type":"outcome",
+      "type": "outcome",
       "category": "Alimentação",
       "price": 50,
       "createdAt": "2023-02-02T23:23:35.304"
+    },
+    {
+      "description": "asdasd",
+      "price": 123,
+      "category": "Alasd",
+      "type": "income",
+      "createdAt": "2023-02-06T12:40:26.011Z",
+      "id": 3
+    },
+    {
+      "description": "Desenvoleiktno de APP",
+      "price": 10000,
+      "category": "Venda",
+      "type": "income",
+      "createdAt": "2023-02-06T12:42:42.670Z",
+      "id": 4
+    },
+    {
+      "description": "asdasd",
+      "price": 123,
+      "category": "asdasd",
+      "type": "income",
+      "createdAt": "2023-02-06T12:43:39.627Z",
+      "id": 5
+    },
+    {
+      "description": "Iogourte",
+      "price": 12,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-02-07T02:22:33.445Z",
+      "id": 6
     }
-
   ]
 }

@@ -20,7 +20,7 @@ interface SummaryCardProps {
 const modifiersSummaryCard = {
   green: (theme: DefaultTheme) => css`
     background: ${theme['green-700']};
-  `
+  `,
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`

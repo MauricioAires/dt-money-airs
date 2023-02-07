@@ -22,7 +22,7 @@ export const NewTransactionButton = styled.button`
   ${({ theme }) => css`
     height: 50px;
     background: ${theme['green-500']};
-    color: ${theme['white']};
+    color: ${theme.white};
     font-weight: bold;
     padding: 0 1.25rem;
     border-radius: 6px;

@@ -46,7 +46,7 @@ export const Content = styled(Dialog.Content)`
       button[type='submit'] {
         height: 58px;
         background: ${theme['green-500']};
-        color: ${theme['white']};
+        color: ${theme.white};
         font-weight: bold;
         padding: 0 1.25rem;
         border-radius: 6px;
@@ -98,11 +98,11 @@ const modifiersTransactionTypeButton = {
     }
 
     &[data-state='checked'] {
-      color: ${theme['white']};
+      color: ${theme.white};
       background: ${theme['green-500']};
 
       svg {
-        color: ${theme['white']};
+        color: ${theme.white};
       }
     }
   `,
@@ -112,18 +112,18 @@ const modifiersTransactionTypeButton = {
     }
 
     &[data-state='checked'] {
-      color: ${theme['white']};
+      color: ${theme.white};
       background: ${theme['red-500']};
 
       svg {
-        color: ${theme['white']};
+        color: ${theme.white};
       }
     }
-  `
+  `,
 }
 
 export const TransactionTypeButton = styled(
-  RadioGroup.Item
+  RadioGroup.Item,
 )<TransactionTypeButtonProps>`
   ${({ theme, variant }) => css`
     background: ${theme['gray-700']};
