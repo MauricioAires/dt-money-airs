@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { createContext } from 'use-context-selector'
 import { api } from '../lib/axios'
 
+import data from '../../server.json'
+
 interface Transaction {
   id: number
   description: string
@@ -30,7 +32,13 @@ interface TransactionsProviderProps {
 }
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
-  const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [transactions, setTransactions] = useState<Transaction[]>(() => {
+    if (data) {
+      return data.transactions as Transaction[]
+    }
+
+    return []
+  })
 
   const fetchTransactions = useCallback(
     async (query?: string) => {
