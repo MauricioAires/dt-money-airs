@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import { createContext } from 'use-context-selector'
 import { api } from '../lib/axios'
 
 interface Transaction {
@@ -22,7 +23,7 @@ interface TransactionContextType {
   createTransaction: (data: CreateTransactionInput) => Promise<void>
 }
 
-const TransactionContext = createContext({} as TransactionContextType)
+export const TransactionContext = createContext({} as TransactionContextType)
 
 interface TransactionsProviderProps {
   children: React.ReactNode
@@ -31,34 +32,41 @@ interface TransactionsProviderProps {
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
-  async function fetchTransactions(query?: string) {
-    const response = await api.get('/transactions', {
-      params: {
-        _sort: 'createdAt',
-        _order: 'desc',
-        q: query,
-      },
-    })
+  const fetchTransactions = useCallback(
+    async (query?: string) => {
+      const response = await api.get('/transactions', {
+        params: {
+          _sort: 'createdAt',
+          _order: 'desc',
+          q: query,
+        },
+      })
 
-    setTransactions(response.data)
-  }
-  async function createTransaction(data: CreateTransactionInput) {
-    const { category, description, price, type } = data
+      setTransactions(response.data)
+    },
+    [setTransactions],
+  )
 
-    const response = await api.post('/transactions', {
-      description,
-      price,
-      category,
-      type,
-      createdAt: new Date().toISOString(),
-    })
+  const createTransaction = useCallback(
+    async (data: CreateTransactionInput) => {
+      const { category, description, price, type } = data
 
-    setTransactions((state) => [response.data, ...state])
-  }
+      const response = await api.post('/transactions', {
+        description,
+        price,
+        category,
+        type,
+        createdAt: new Date().toISOString(),
+      })
+
+      setTransactions((state) => [response.data, ...state])
+    },
+    [],
+  )
 
   useEffect(() => {
     fetchTransactions()
-  }, [])
+  }, [fetchTransactions])
 
   return (
     <TransactionContext.Provider
@@ -72,5 +80,3 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     </TransactionContext.Provider>
   )
 }
-
-export const useTransactions = () => useContext(TransactionContext)
