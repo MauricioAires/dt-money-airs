@@ -1,12 +1,20 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-export const TransactionsWrapper = styled.div``
+export const TransactionsWrapper = styled.div`
+  margin-bottom: 100px;
+`
 
 export const TransactionsContent = styled.main`
   width: 100%;
   max-width: 1220px;
   margin: 4rem auto 0;
   padding: 0 1.5rem;
+
+  overflow: hidden;
+`
+
+export const TransactionsTableWrapper = styled.div`
+  overflow: auto;
 `
 
 export const TransactionsTable = styled.table`

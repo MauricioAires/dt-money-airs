@@ -11,6 +11,8 @@ export const SummaryWrapper = styled.section`
   gap: 2rem;
 
   margin-top: -5rem;
+
+  overflow: auto;
 `
 
 interface SummaryCardProps {

@@ -45,6 +45,12 @@ export const SearchFormWrapper = styled.form`
         cursor: not-allowed;
       }
 
+      @media (max-width: ${theme['breakpoint-md']}) {
+        > span {
+          display: none;
+        }
+      }
+
     }
   `}
 `
